@@ -40,7 +40,7 @@ public class BulletController : MonoBehaviour
         }
 
 
-        transform.position += new Vector3(0.0f, 0.01f);
+        transform.position += new Vector3(0.0f, 0.1f);
 
     }
 

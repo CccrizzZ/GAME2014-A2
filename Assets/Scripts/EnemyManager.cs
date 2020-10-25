@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
     {
         Vector3 SpawnPosition = new Vector3(Random.Range(-2.5f, 2.5f), 10.5f);
 
-        if(Time.frameCount % 120 == 0)
+        if(Time.frameCount % 60 == 0)
         {
             rat.transform.position = SpawnPosition;
             Instantiate(rat);

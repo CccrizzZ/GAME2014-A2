@@ -31,7 +31,7 @@ public class ShootingController : MonoBehaviour
     {
         
         
-        if(Time.frameCount % 240 == 0)
+        if(Time.frameCount % 60 == 0)
         {
             Vector3 spawnPosition = new Vector3(0.0f, 0.5f); 
             bullet.transform.position = transform.position + spawnPosition;

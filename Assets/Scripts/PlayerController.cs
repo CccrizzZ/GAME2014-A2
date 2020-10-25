@@ -53,17 +53,9 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.y <= -5.0f)
         {
-            
-            transform.position = new Vector3(0.0f, -3.5f);
-            lifeCount -= 1;
+            Respawn();
 
-            Cam.GetComponent<AudioSource>().Play();
 
-            if (lifeCount < 0)
-            {
-                SceneManager.LoadScene("GameOverScene");
-
-            }
         }
         
 
@@ -71,9 +63,19 @@ public class PlayerController : MonoBehaviour
         Move();
         CheckBounds();
 
+    }
 
+    private void Respawn()
+    {
+        transform.position = new Vector3(0.0f, -3.5f);
+        lifeCount -= 1;
+        Cam.GetComponent<AudioSource>().Play();
 
+        if (lifeCount < 0)
+        {
+            SceneManager.LoadScene("GameOverScene");
 
+        }
     }
 
 
@@ -139,5 +141,10 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(-horizontalBoundary, transform.position.y, 0.0f);
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Destroy(other.gameObject);
+        Respawn();
     }
 }
